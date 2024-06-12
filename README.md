@@ -2,6 +2,9 @@
  
 This project involves building a serverless, progressive web application (PWA) using React and a test-driven development (TDD) approach. The application leverages the Google Calendar API to fetch upcoming events. By combining serverless and PWA concepts, the application benefits from no backend maintenance, scalability, availability, no idle time costs, instant loading, offline support, push notifications, "add to home screen" prompt, responsive design, and cross-platform compatibility. The TDD approach ensures high-quality code by writing tests before actual functionality. The application also includes data visualization through graphs, enhancing its visual appeal and data interpretation. Users can search for a city and get a list of events hosted in that city. The data visualization component includes a scatter plot showing the number of events in each location and a pie chart visualizing the popularity of event genres.
 
+## Serverless functions
+Serverless AWS lambda functions will be used to implement the fuctionality of the app. This includes user access by obtaining and refreshing OAuth2 tokens. The use of the serverless function will allow to scale the app dynamically along with growing user demand.
+
 ## User Stories
 
 1. FilterEventsbyCity: As a user, I should be able to filter events by city so that I can see a list of events taking place in that city.
