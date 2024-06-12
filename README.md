@@ -14,7 +14,7 @@ This project involves building a serverless, progressive web application (PWA) u
 
 5. AddanAppShortcuttotheHomeScreen: As a user, I should be able to click on a Home Button, so that I get to the home screen from anywhere in the app
 
-6. DisplayChartsVisualizingEventDetails. As a user, I should have an option for visualization available, so that I am shown a visualization of the event details.
+6. DisplayChartsVisualizingEventDetails: As a user, I should have an option for visualization available, so that I am shown a visualization of the event details.
 
 ## Scenarios
 
