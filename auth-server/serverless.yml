@@ -1,5 +1,5 @@
 # "org" ensures this Service is used with the correct Serverless Framework Access Key.
-org: otmar
+#org: otmar
 # "service" is the name of this project. This will also be added to your AWS resource names.
 service: auth-server
 
@@ -18,5 +18,11 @@ functions:
     handler: handler.getAuthURL
     events:
       - http:
-        path: apit/get-auth-url
-        method: get
+          path: api/get-auth-url
+          method: get
+  getAccessToken:
+    handler: handler.getAccessToken
+    events:
+      - http:
+          path: api/token/{code}
+          method: get

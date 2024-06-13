@@ -2,6 +2,7 @@
 
 const { google } = require("googleapis");
 const { calendar } = google.calendar("v3");
+
 const SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
 const { CLIENT_SECRET, CLIENT_ID, CALENDAR_ID } = process.env;
 const redirect_uris = ["https://OtmarKirch.github.io/meetApp"];
@@ -28,3 +29,38 @@ module.exports.getAuthURL = async () => {
     body: JSON.stringify({ authUrl }),
   };
   }
+
+module.exports.getAccessToken = async (event) => {
+  const code = decodeURIComponent(`${event.pathParameters.code}`);
+
+  return new Promise((resolve, reject) => {
+    oAuth2Client.getToken(code, (err, response) => {
+      if (err) {
+        return reject(err);
+      }
+      return resolve(response);
+    });
+  })
+    .then((results) => {
+      return {
+        statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+        },
+        body: JSON.stringify(results),
+      };
+    })
+    .catch((err) => {
+      console.error(err);
+      return {
+        statusCode: 500,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+        },
+        body: JSON.stringify(err),
+      };
+    });
+
+}
