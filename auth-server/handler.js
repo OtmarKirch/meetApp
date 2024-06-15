@@ -1,9 +1,9 @@
 "use strict";
 
 const { google } = require("googleapis");
-const { calendar } = google.calendar("v3");
+const calendar = google.calendar("v3");
 
-const SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
+const SCOPES = ["https://www.googleapis.com/auth/calendar.events.public.readonly"];
 const { CLIENT_SECRET, CLIENT_ID, CALENDAR_ID } = process.env;
 const redirect_uris = ["https://OtmarKirch.github.io/meetApp"];
 
@@ -93,7 +93,7 @@ module.exports.getCalendarEvents = async (event) => {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Credentials": true,
       },
-      body: JSON.stringify({events: results.data.items}),
+      body: JSON.stringify({ events: results.data.items }),
     };
   } )
   .catch((err) => {
@@ -104,7 +104,7 @@ module.exports.getCalendarEvents = async (event) => {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Credentials": true,
       },
-      body: JSON.stringify(err),
+      body: JSON.stringify({error: err.message}),
     };
   });
 }
