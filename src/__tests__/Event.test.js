@@ -56,6 +56,7 @@ describe("<Event /> component", () => {
     
     const details = view.container.querySelector(".details");
     expect(details).toBeInTheDocument();
+    expect(detailsButton).toHaveTextContent("Hide Details");
   });
 
 });
