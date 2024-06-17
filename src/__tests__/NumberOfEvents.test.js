@@ -1,9 +1,10 @@
 import { render } from "@testing-library/react";
 import NumberOfEvents from "../components/NumberOfEvents";
+import userEvent from "@testing-library/user-event";
 
 describe("<NumberOfEvents /> component", () => {
-  let view
-    beforeEach(() => {
+  let view;
+  beforeEach(() => {
     view = render(<NumberOfEvents />);
   });
 
@@ -15,6 +16,12 @@ describe("<NumberOfEvents /> component", () => {
   test("default number of events is 32", () => {
     const boxElement = view.getByRole("textbox");
     expect(boxElement).toHaveValue("32");
-  }
-    );
+  });
+
+  test("value of number of events changes when user types in the textbox", async () => {  
+    const user = userEvent.setup();
+    const boxElement = view.getByRole("textbox");
+    await user.type(boxElement, '{backspace}{backspace}10');
+    expect(boxElement).toHaveValue("10");
+  });
 });
