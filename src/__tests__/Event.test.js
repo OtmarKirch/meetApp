@@ -59,4 +59,21 @@ describe("<Event /> component", () => {
     expect(detailsButton).toHaveTextContent("Hide Details");
   });
 
+  test("when 'Hide Details' button is clicked, the event's details are hidden", async () => {
+    const user = userEvent.setup();
+    view.rerender(<Event event={event} />);
+    const detailsButton = view.queryByText("Show Details");
+    await user.click(detailsButton);
+
+    let details = view.container.querySelector(".details");
+    expect(details).toBeInTheDocument();
+    expect(detailsButton).toHaveTextContent("Hide Details");
+
+    await user.click(detailsButton);
+    details = view.container.querySelector(".details");
+    expect(details).not.toBeInTheDocument();
+    expect(detailsButton).toHaveTextContent("Show Details");
+  });
+
+
 });
