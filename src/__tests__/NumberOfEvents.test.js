@@ -8,8 +8,13 @@ describe("<NumberOfEvents /> component", () => {
   });
 
   test('contains an element with role "textbox"', () => {
-    view.rerender(<NumberOfEvents />);
     const boxElement = view.getByRole("textbox");
     expect(boxElement).toBeInTheDocument();
   });
+
+  test("default number of events is 32", () => {
+    const boxElement = view.getByRole("textbox");
+    expect(boxElement).toHaveValue("32");
+  }
+    );
 });
