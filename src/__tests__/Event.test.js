@@ -1,6 +1,7 @@
 import { render } from "@testing-library/react";
 import Event from "../components/Event";
 import * as api from "../api";
+import userEvent from "@testing-library/user-event";
 
 describe("<Event /> component", () => {
   let view;
@@ -46,5 +47,15 @@ describe("<Event /> component", () => {
     const details = view.container.querySelector(".details");
     expect(details).not.toBeInTheDocument();
   })
+
+  test("when the details button is clicked, the event's details are shown", async () => {
+    const user = userEvent.setup();
+    view.rerender(<Event event={event} />);
+    const detailsButton = view.queryByText("Show Details");
+    await user.click(detailsButton);
+    
+    const details = view.container.querySelector(".details");
+    expect(details).toBeInTheDocument();
+  });
 
 });
