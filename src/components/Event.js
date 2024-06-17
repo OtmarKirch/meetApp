@@ -1,7 +1,11 @@
-const Event = () => {
-    return (
-        <li>    </li>
-    )
-}
+const Event = ({ event }) => {
+  return (
+    <>
+      <ul>
+        <li></li>
+      </ul>
+    </>
+  );
+};
 
 export default Event;
