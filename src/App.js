@@ -9,23 +9,28 @@ import { useEffect, useState } from 'react';
 const App = () => {
   const [events, setEvents] = useState([]);
   const [allLocations, setAllLocations] = useState([]);
+  const [currentCity, setCurrentCity] = useState("See all cities");
   const [currentNOE, setCurrentNOE] = useState(32);
 
   useEffect(()=>{
     fetchData();
-  }, []);
+  }, [currentCity]);
 
+ 
   const fetchData = async () => {
     const allEvents = await api.getEvents();
-    setEvents(allEvents.slice(0, currentNOE));
+    const filteredEvents = currentCity === "See all cities" ?
+      allEvents :
+      allEvents.filter(event => event.location === currentCity)
+    setEvents(filteredEvents.slice(0, currentNOE));
     setAllLocations(api.extractLocations(allEvents));
   }
 
   return (
     <div className="App">
-      <CitySearch allLocations={allLocations} />
-      <EventList events={events} />
+      <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
       <NumberOfEvents />
+      <EventList events={events} />
     </div>
   );
 }

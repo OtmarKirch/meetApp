@@ -61,7 +61,7 @@ describe("<CitySearch /> component", () => {
     const user = userEvent.setup();
     const allEvents = await api.getEvents();
     const allLocations = api.extractLocations(allEvents);
-    view.rerender(<CitySearch allLocations={allLocations} />);
+    view.rerender(<CitySearch allLocations={allLocations} setCurrentCity={()=>{}} />);
 
     const cityTextBox = view.queryByRole("textbox");
     await user.type(cityTextBox, "Berlin");
