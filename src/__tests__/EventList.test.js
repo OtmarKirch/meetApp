@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
 import EventList from "../components/EventList";
+import * as api from "../api";
 
 describe("<EventList /> component", () => {
   let view;
@@ -13,10 +14,9 @@ describe("<EventList /> component", () => {
     expect(view.queryByRole("list")).toBeInTheDocument();
   })
 
-  test("renders correct number of events", () => {
-    view.rerender(
-      <EventList events={[{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]} />
-    );
-    expect(view.getAllByRole("listitem")).toHaveLength(4);
+  test('renders correct number of events', async () => {
+    const allEvents = await api.getEvents(); 
+    view.rerender(<EventList events={allEvents} />);
+expect(view.getAllByRole("listitem")).toHaveLength(allEvents.length);
   });
 });
