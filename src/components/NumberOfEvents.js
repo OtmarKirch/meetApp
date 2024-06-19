@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const NumberOfEvents = ({setCurrentNOE}) => {
 
     const handleNumberOfEvents = (event)=>{
@@ -10,6 +8,7 @@ const NumberOfEvents = ({setCurrentNOE}) => {
 
     return (
         <div id="event-number">
+            <label>Number of events: </label>
             <input 
             type="text" 
             placeholder="Enter number of events"

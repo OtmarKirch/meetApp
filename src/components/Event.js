@@ -11,11 +11,12 @@ const handleToggleDetails = () => {
 }
 
   return (
-    <li>
-      <p>{event.summary}</p>
+    <li className="event">
+      <h2>{event.summary}</h2>
       <p>{event.created}</p>
-      <p>{event.location}</p>
+      <p className="city">{event.location}</p>
         <button
+        className="details-btn"
         onClick={() => handleToggleDetails()}
         >{detailsChoice}</button>
         {showDetails && 
