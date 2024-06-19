@@ -5,7 +5,9 @@ import userEvent from "@testing-library/user-event";
 describe("<NumberOfEvents /> component", () => {
   let view;
   beforeEach(() => {
-    view = render(<NumberOfEvents />);
+    view = render(<NumberOfEvents setCurrentNOE={(val)=>{
+      console.log("Mock setCurrentNOE called with value: ", val)
+    }}/>);
   });
 
   test('contains an element with role "textbox"', () => {
