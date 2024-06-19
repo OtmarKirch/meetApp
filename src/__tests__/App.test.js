@@ -60,7 +60,7 @@ describe("<App /> integration", () => {
     const NumberDisplayDOM = AppDOM.querySelector("#event-number")
     const NumberDisplayInput = within(NumberDisplayDOM).queryByRole("textbox")
     
-    const numberSpecifiedByUser = 10
+    const numberSpecifiedByUser = 11
     await user.type(NumberDisplayInput, `{backspace}{backspace}${numberSpecifiedByUser}`);
 
     const EventListDOM = AppDOM.querySelector("#event-list");
