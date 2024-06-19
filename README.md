@@ -58,7 +58,6 @@ Serverless AWS lambda functions will be used to implement the fuctionality of th
 - A list of events is displayed
 - When the user specified a number of events to display
 - Then as many events as the specified number should be displayed
-- 
 ### Feature 4: Use the App When Offline
 #### Scenario 1: Show cached data when there’s no internet connection.
 - The internet connection was severed
