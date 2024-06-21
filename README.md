@@ -41,14 +41,14 @@ Serverless AWS lambda functions will be used to implement the fuctionality of th
 - When the user toggles event details
 - Then event details of all events should be expanded if they weren't before and vice versa.
 #### Scenario 2: User can expand an event to see details.
-- A list of events was displayed
+- Given a list of events was displayed
 - When the user clicked on an event
 - Then the selected event should be expanded with its details
 #### Scenario 3: User can collapse an event to hide details.
-- A list of events is displayed with at least one event expanded
+- Given a list of events is displayed with at least one event expanded
 - When the user clicked on an expanded event
 - Then the view of the selected event should collapse
-- 
+
 ### Feature 3: Specify Number of Events
 #### Scenario 1: When user hasn’t specified a number, 32 events are shown by default.
 - A list of events is displayed
