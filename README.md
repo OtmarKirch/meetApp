@@ -38,8 +38,8 @@ Serverless AWS lambda functions will be used to implement the fuctionality of th
 ### Feature 2: Show/Hide Event Details
 #### Scenario 1: An event element is collapsed by default.
 - Given a list of events is displayed
-- When the user toggles event details
-- Then event details of all events should be expanded if they weren't before and vice versa.
+- the user has not toggled event details
+- event details of all events should be collapsed
 #### Scenario 2: User can expand an event to see details.
 - Given a list of events was displayed
 - When the user clicked on an event
