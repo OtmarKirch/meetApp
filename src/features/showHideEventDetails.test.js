@@ -2,8 +2,6 @@ import { render, waitFor, within } from "@testing-library/react";
 import { loadFeature, defineFeature } from "jest-cucumber";
 import userEvent from "@testing-library/user-event";
 import App from "../App";
-import * as api from "../api";
-import EventList from "../components/EventList";
 
 const feature = loadFeature("./src/features/showHideEventDetails.feature");
 
