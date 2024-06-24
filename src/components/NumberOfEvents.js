@@ -2,10 +2,11 @@ const NumberOfEvents = ({setCurrentNOE, setErrorAlert}) => {
 
     const handleNumberOfEvents = (event)=>{
        const value = event.target.value
-       if (!/^\d+$/.test(value)){
+       if (!/^(\d+)?$/.test(value)){
         setErrorAlert("You can only use numbers to set the number of events shown.")
        }else{
-        setCurrentNOE(value)
+        if (value === ""){setCurrentNOE(32)}else{setCurrentNOE(value)}
+        
         setErrorAlert("")
        }
     }
