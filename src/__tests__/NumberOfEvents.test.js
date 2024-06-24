@@ -7,7 +7,9 @@ describe("<NumberOfEvents /> component", () => {
   beforeEach(() => {
     view = render(<NumberOfEvents setCurrentNOE={(val)=>{
       console.log("Mock setCurrentNOE called with value: ", val)
-    }}/>);
+    }}
+    setErrorAlert={()=>{console.log("Mock function setErrorAlert")}}
+    />);
   });
 
   test('contains an element with role "textbox"', () => {
