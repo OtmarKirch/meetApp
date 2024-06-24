@@ -7,7 +7,14 @@ import * as api from "../api";
 describe("<CitySearch /> component", () => {
   let view;
   beforeEach(() => {
-    view = render(<CitySearch allLocations={[]}/>);
+    view = render(
+      <CitySearch
+        allLocations={[]}
+        setInfoAlert={() => {
+          console.log("Mock setInfoAlert");
+        }}
+      />
+    );
   });
   test("shows cities matching string", () => {
     const cityTextBox = view.queryByRole("textbox");
@@ -34,7 +41,14 @@ describe("<CitySearch /> component", () => {
     const user = userEvent.setup();
     const allEvents = await api.getEvents();
     const allLocations = api.extractLocations(allEvents);
-    view.rerender(<CitySearch allLocations={allLocations} />);
+    view.rerender(
+      <CitySearch
+        allLocations={allLocations}
+        setInfoAlert={() => {
+          console.log("Mock setInfoAlert");
+        }}
+      />
+    );
 
     // user types "Berlin" in city textbox
     const cityTextBox = view.queryByRole("textbox");
@@ -61,7 +75,15 @@ describe("<CitySearch /> component", () => {
     const user = userEvent.setup();
     const allEvents = await api.getEvents();
     const allLocations = api.extractLocations(allEvents);
-    view.rerender(<CitySearch allLocations={allLocations} setCurrentCity={()=>{}} />);
+    view.rerender(
+      <CitySearch
+        allLocations={allLocations}
+        setCurrentCity={() => {}}
+        setInfoAlert={() => {
+          console.log("Mock setInfoAlert");
+        }}
+      />
+    );
 
     const cityTextBox = view.queryByRole("textbox");
     await user.type(cityTextBox, "Berlin");
@@ -94,7 +116,8 @@ describe("<CitySearch /> integration", () => {
     const allEvents = await api.getEvents();
     const allLocations = api.extractLocations(allEvents);
 
-    const suggestionListItems = within(CitySearchDOM).queryAllByRole("listitem");
+    const suggestionListItems =
+      within(CitySearchDOM).queryAllByRole("listitem");
     expect(suggestionListItems).toHaveLength(allLocations.length + 1);
   });
 });
