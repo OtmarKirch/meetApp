@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const CitySearch = ({ allLocations, setCurrentCity }) => {
+const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -15,6 +15,15 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
 
     setQuery(value);
     setSuggestions(filteredLocations);
+
+    let infoText;
+    if (filteredLocations.length === 0) {
+      infoText =
+        "We cannot find the city you are looking for. Please try another city.";
+    } else {
+      infoText = "";
+    }
+    setInfoAlert(infoText);
   };
 
   const handleItemClicked = (event) => {
@@ -22,6 +31,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
     setQuery(value);
     setShowSuggestions(false);
     setCurrentCity(value);
+    setInfoAlert("");
   };
 
   useEffect(() => {
@@ -41,10 +51,15 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
       {showSuggestions ? (
         <ul className="suggestions">
           {suggestions.map((suggestion) => {
-            return <li
-            className="suggestedCity"
-            onClick={handleItemClicked}
-            key={suggestion}>{suggestion}</li>;
+            return (
+              <li
+                className="suggestedCity"
+                onClick={handleItemClicked}
+                key={suggestion}
+              >
+                {suggestion}
+              </li>
+            );
           })}
           <li key="See all cities">
             <b>See all cities</b>
