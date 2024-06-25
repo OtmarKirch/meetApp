@@ -87,10 +87,15 @@ input[type="number"] {
   cursor: pointer;
 }
 
-.alerts-container {
-  position: fixed;
+.Alerts {
+  display: flex;
   top: 0px;
   left: 20px;
   width: 250px;
   z-index: 1000;
 }
+
+.alerts-container {
+  
+}
+

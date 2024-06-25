@@ -38,6 +38,7 @@ class InfoAlert extends Alert {
         this.color = "rgb(0,0,255)";
         this.bgColor = "rgb(220,220,255)";
     }
+
 }
 
 class ErrorAlert extends Alert {

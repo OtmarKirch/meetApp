@@ -31,21 +31,21 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className="alerts-container" id="info-alert">
-        {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
-      </div>
       <CitySearch
         allLocations={allLocations}
         setCurrentCity={setCurrentCity}
         setInfoAlert={setInfoAlert}
       />
-      <div className="error-container" id="error-alert">
-        {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
+      <div className="alerts-container" id="info-alert">
+        {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
       </div>
       <NumberOfEvents
         setCurrentNOE={setCurrentNOE}
         setErrorAlert={setErrorAlert}
       />
+      <div className="alerts-container" id="error-alert">
+        {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
+      </div>
       <EventList events={events} />
     </div>
   );
