@@ -51,9 +51,11 @@ export const getEvents = async () => {
     const result = await response.json();
     if (result) {
       localStorage.setItem("lastEvents", JSON.stringify(result.events));
-      console.log(localStorage.getItem("lastEvents"));
+      console.log("Events in getEvents before returning to App.js:")
+      console.log(result.events);
       return result.events;
-    } else return null;
+    } 
+    //else {return null};
   }
 };
 
