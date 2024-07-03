@@ -1,4 +1,4 @@
-import mockData from './mock-data';
+import mockData from "./mock-data";
 // import NProgress from 'nprogress';
 
 /**
@@ -31,30 +31,32 @@ const checkToken = async (accessToken) => {
 export const getEvents = async () => {
   // NProgress.start();
 
-  if (window.location.href.startsWith('http://localhost')) {
-   // NProgress.done();
+  if (window.location.href.startsWith("http://localhost")) {
+    // NProgress.done();
     return mockData;
   }
 
   if (!navigator.onLine) {
     const events = localStorage.getItem("lastEvents");
-    NProgress.done();
-    return events?JSON.parse(events):[];
+    //NProgress.done();
+    return events ? JSON.parse(events) : [];
+  } else {
+    const token = await getAccessToken();
+
+    if (token) {
+      removeQuery();
+      const url =
+        "https://amn3j914j2.execute-api.eu-central-1.amazonaws.com/dev/api/get-events" +
+        "/" +
+        token;
+      const response = await fetch(url);
+      const result = await response.json();
+      if (result) {
+        localStorage.setItem("lastEvents", JSON.stringify(result.events));
+        console.log(localStorage.getItem("lastEvents"));
+      } else return null;
+    }
   }
-
-  const token = await getAccessToken();
-
-  if (token) {
-    removeQuery();
-    const url =  "https://amn3j914j2.execute-api.eu-central-1.amazonaws.com/dev/api/get-events" + "/" + token;
-    const response = await fetch(url);
-    const result = await response.json();
-    if (result) {
-      localStorage.setItem("lastEvents", JSON.stringify(result.events));
-      return result.events;
-    } else return null; 
-  }
-
 };
 
 const removeQuery = () => {
@@ -75,7 +77,9 @@ const removeQuery = () => {
 const getToken = async (code) => {
   const encodeCode = encodeURIComponent(code);
   const response = await fetch(
-    "https://amn3j914j2.execute-api.eu-central-1.amazonaws.com/dev/api/token" + '/' + encodeCode
+    "https://amn3j914j2.execute-api.eu-central-1.amazonaws.com/dev/api/token" +
+      "/" +
+      encodeCode
   );
   const { access_token } = await response.json();
   access_token && localStorage.setItem("access_token", access_token);
