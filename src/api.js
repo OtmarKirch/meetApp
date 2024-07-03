@@ -1,4 +1,3 @@
-import mockDataTest from "./data";
 import mockData from "./mock-data";
 // import NProgress from 'nprogress';
 
@@ -31,7 +30,7 @@ const checkToken = async (accessToken) => {
  */
 export const getEvents = async () => {
   if (window.location.href.startsWith("http://localhost")) {
-    return mockDataTest;
+    return mockData;
   }
 
   if (!navigator.onLine) {
@@ -51,11 +50,8 @@ export const getEvents = async () => {
     const result = await response.json();
     if (result) {
       localStorage.setItem("lastEvents", JSON.stringify(result.events));
-      console.log("Events in getEvents before returning to App.js:")
-      console.log(result.events);
       return result.events;
-    } 
-    //else {return null};
+    } else {return null};
   }
 };
 

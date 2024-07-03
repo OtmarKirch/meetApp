@@ -21,14 +21,10 @@ const App = () => {
 
   const fetchData = async () => {
     const allEvents = await api.getEvents();
-    console.log("Events returned from api.js after getEvents method")
-    console.log(allEvents)
     const filteredEvents =
       currentCity === "See all cities"
         ? allEvents
         : allEvents.filter((event) => event.location === currentCity);
-        console.log("Events after filtering")
-        console.log(filteredEvents)
     setEvents(filteredEvents.slice(0, currentNOE));
     setAllLocations(api.extractLocations(allEvents));
   };
