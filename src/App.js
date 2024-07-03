@@ -2,7 +2,7 @@ import EventList from "./components/EventList";
 import CitySearch from "./components/CitySearch";
 import NumberOfEvents from "./components/NumberOfEvents";
 import * as api from "./api";
-import { ErrorAlert, InfoAlert } from "./components/Alert";
+import { ErrorAlert, InfoAlert, WarningAlert } from "./components/Alert";
 
 import "./App.css";
 import { useEffect, useState } from "react";
@@ -14,8 +14,14 @@ const App = () => {
   const [currentNOE, setCurrentNOE] = useState(32);
   const [infoAlert, setInfoAlert] = useState("");
   const [errorAlert, setErrorAlert] = useState("");
+  const [warningAlert, setWarningAlert] = useState("")
 
   useEffect(() => {
+    if (navigator.onLine){
+      setWarningAlert("")
+    } else {
+      setWarningAlert("You are using the app offline. Data will only be updated if you go online.")
+    }
     fetchData();
   }, [currentCity, currentNOE]);
 
@@ -31,6 +37,9 @@ const App = () => {
 
   return (
     <div className="App">
+      <div className="alerts-container" id="warning-alert">
+        {warningAlert.length ? <WarningAlert text={warningAlert} /> : null}
+      </div>
       <CitySearch
         allLocations={allLocations}
         setCurrentCity={setCurrentCity}
