@@ -1,3 +1,4 @@
+import mockDataTest from "./data"
 import mockData from "./mock-data";
 // import NProgress from 'nprogress';
 
@@ -33,7 +34,7 @@ export const getEvents = async () => {
 
   if (window.location.href.startsWith("http://localhost")) {
     // NProgress.done();
-    return mockData;
+    return mockDataTest;
   }
 
   if (!navigator.onLine) {
