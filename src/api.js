@@ -1,4 +1,4 @@
-import mockDataTest from "./data"
+import mockDataTest from "./data";
 import mockData from "./mock-data";
 // import NProgress from 'nprogress';
 
@@ -30,33 +30,30 @@ const checkToken = async (accessToken) => {
  * This function will fetch the list of all events
  */
 export const getEvents = async () => {
-  // NProgress.start();
-
   if (window.location.href.startsWith("http://localhost")) {
-    // NProgress.done();
     return mockDataTest;
   }
 
   if (!navigator.onLine) {
     const events = localStorage.getItem("lastEvents");
-    //NProgress.done();
-    return events ? JSON.parse(events) : [];
-  } else {
-    const token = await getAccessToken();
 
-    if (token) {
-      removeQuery();
-      const url =
-        "https://amn3j914j2.execute-api.eu-central-1.amazonaws.com/dev/api/get-events" +
-        "/" +
-        token;
-      const response = await fetch(url);
-      const result = await response.json();
-      if (result) {
-        localStorage.setItem("lastEvents", JSON.stringify(result.events));
-        console.log(localStorage.getItem("lastEvents"));
-      } else return null;
-    }
+    return events ? JSON.parse(events) : [];
+  }
+  const token = await getAccessToken();
+
+  if (token) {
+    removeQuery();
+    const url =
+      "https://amn3j914j2.execute-api.eu-central-1.amazonaws.com/dev/api/get-events" +
+      "/" +
+      token;
+    const response = await fetch(url);
+    const result = await response.json();
+    if (result) {
+      localStorage.setItem("lastEvents", JSON.stringify(result.events));
+      console.log(localStorage.getItem("lastEvents"));
+      return result.events;
+    } else return null;
   }
 };
 
