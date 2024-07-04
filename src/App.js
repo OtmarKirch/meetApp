@@ -2,6 +2,7 @@ import EventList from "./components/EventList";
 import CitySearch from "./components/CitySearch";
 import NumberOfEvents from "./components/NumberOfEvents";
 import CityEventsCharts from "./components/CityEventsChart";
+import EventGenresChart from "./components/EventGenresChart"
 import * as api from "./api";
 import { ErrorAlert, InfoAlert, WarningAlert } from "./components/Alert";
 
@@ -15,13 +16,15 @@ const App = () => {
   const [currentNOE, setCurrentNOE] = useState(32);
   const [infoAlert, setInfoAlert] = useState("");
   const [errorAlert, setErrorAlert] = useState("");
-  const [warningAlert, setWarningAlert] = useState("")
+  const [warningAlert, setWarningAlert] = useState("");
 
   useEffect(() => {
-    if (navigator.onLine){
-      setWarningAlert("")
+    if (navigator.onLine) {
+      setWarningAlert("");
     } else {
-      setWarningAlert("You are using the app offline. Data will only be updated if you go online.")
+      setWarningAlert(
+        "You are using the app offline. Data will only be updated if you go online."
+      );
     }
     fetchData();
   }, [currentCity, currentNOE]);
@@ -56,10 +59,10 @@ const App = () => {
       <div className="alerts-container" id="error-alert">
         {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
       </div>
-      <CityEventsCharts
-        allLocations={allLocations}
-        events={events}
-      />
+      <div className="charts-container">
+        <CityEventsCharts allLocations={allLocations} events={events} />
+        <EventGenresChart events={events} />
+      </div>
       <EventList events={events} />
     </div>
   );
