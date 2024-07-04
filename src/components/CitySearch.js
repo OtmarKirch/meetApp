@@ -35,10 +35,10 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
   };
 
   const handleSeeAllCities = () => {
-    setQuery("See all cities")
-    setShowSuggestions(false)
-    setCurrentCity("See all cities")
-  }
+    setQuery("See all cities");
+    setShowSuggestions(false);
+    setCurrentCity("See all cities");
+  };
 
   useEffect(() => {
     setSuggestions(allLocations);

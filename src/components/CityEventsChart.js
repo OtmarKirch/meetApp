@@ -28,36 +28,36 @@ const CityEventsChart = ({ allLocations, events }) => {
   };
 
   return (
-      <ResponsiveContainer width="99%" height={400}>
-        <ScatterChart
-          margin={{
-            top: 20,
-            right: 20,
-            bottom: 60,
-            left: -20,
-          }}
-        >
-          <CartesianGrid stroke="#DC6B19" />
-          <XAxis
+    <ResponsiveContainer width="99%" height={400}>
+      <ScatterChart
+        margin={{
+          top: 20,
+          right: 20,
+          bottom: 60,
+          left: -20,
+        }}
+      >
+        <CartesianGrid stroke="#DC6B19" />
+        <XAxis
           stroke="#DC6B19"
-            type="category"
-            dataKey="city"
-            name="City"
-            angle={60}
-            interval={0}
-            tick={{ dx: 20, dy: 40, fontSize: 14 }}
-          />
-          <YAxis
+          type="category"
+          dataKey="city"
+          name="City"
+          angle={60}
+          interval={0}
+          tick={{ dx: 20, dy: 40, fontSize: 14 }}
+        />
+        <YAxis
           stroke="#DC6B19"
-            type="number"
-            dataKey="count"
-            name="Number of events"
-            allowDecimals={false}
-          />
-          <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-          <Scatter name="Cities" data={data} fill="#FFF8DC" />
-        </ScatterChart>
-      </ResponsiveContainer>
+          type="number"
+          dataKey="count"
+          name="Number of events"
+          allowDecimals={false}
+        />
+        <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+        <Scatter name="Cities" data={data} fill="#FFF8DC" />
+      </ScatterChart>
+    </ResponsiveContainer>
   );
 };
 
