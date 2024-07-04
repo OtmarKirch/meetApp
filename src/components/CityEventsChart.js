@@ -9,7 +9,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const CityEventsCharts = ({ allLocations, events }) => {
+const CityEventsChart = ({ allLocations, events }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -37,8 +37,9 @@ const CityEventsCharts = ({ allLocations, events }) => {
             left: -20,
           }}
         >
-          <CartesianGrid />
+          <CartesianGrid stroke="#DC6B19" />
           <XAxis
+          stroke="#DC6B19"
             type="category"
             dataKey="city"
             name="City"
@@ -47,16 +48,17 @@ const CityEventsCharts = ({ allLocations, events }) => {
             tick={{ dx: 20, dy: 40, fontSize: 14 }}
           />
           <YAxis
+          stroke="#DC6B19"
             type="number"
             dataKey="count"
             name="Number of events"
             allowDecimals={false}
           />
           <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-          <Scatter name="A school" data={data} fill="#8884d8" />
+          <Scatter name="Cities" data={data} fill="#FFF8DC" />
         </ScatterChart>
       </ResponsiveContainer>
   );
 };
 
-export default CityEventsCharts;
+export default CityEventsChart;

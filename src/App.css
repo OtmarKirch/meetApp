@@ -1,4 +1,18 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
+:root {
+  --background-website: #6C0345;
+  --background-orange: #DC6B19;
+  --background-yellow: #F7C566;
+  --font-light: #FFF8DC;
+  --font-dark: var(--background-website);
+}
+
+body {
+  background-color: var(--background-website);
+  color: var(--font-light)
+}
+
 .App {
   text-align: center;
   padding: 2% 5%;
@@ -41,6 +55,13 @@ input[type="number"] {
   position: relative;
 }
 
+#city-search>input {
+  background-color: var(--background-orange);
+  border: 1px solid var(--background-yellow);
+  color: var(--font-dark)
+
+}
+
 .suggestions {
   width: 250px;
   position: absolute;
@@ -50,31 +71,40 @@ input[type="number"] {
   margin: 0;
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
+  color: var(--font-dark)
 }
 
-.suggestions > li {
+.suggestions>li {
   text-align: left;
   padding: 8px 6px 8px 10px;
   background-color: #eee;
   cursor: default;
 }
 
-.suggestions > li:last-child {
+.suggestions>li:last-child {
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
 
-.suggestions > li:hover {
+.suggestions>li:hover {
   background-color: #bcdcdb;
+}
+
+#event-number > input {
+  background-color: var(--background-orange);
+  border: 1px solid var(--background-yellow);
+  color: var(--font-dark)
 }
 
 .event {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
   text-align: left;
-  border: 1px solid #ccc;
+  border: 1px solid var(--background-yellow);
   border-radius: 4px;
   position: relative;
+  background-color: var(--background-orange);
+  color: var(--font-dark)
 }
 
 .details-btn {
@@ -82,9 +112,13 @@ input[type="number"] {
   right: 5px;
   bottom: 5px;
   padding: 5px 8px;
-  border-radius: 4px;
+  border-radius: 14px;
+  box-shadow: none;
   outline: none;
   cursor: pointer;
+  background-color: var(--background-orange);
+  border-color: var(--background-yellow);
+  color: var(--font-dark);
 }
 
 .Alerts {
