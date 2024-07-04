@@ -34,6 +34,12 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
     setInfoAlert("");
   };
 
+  const handleSeeAllCities = () => {
+    setQuery("See all cities")
+    setShowSuggestions(false)
+    setCurrentCity("See all cities")
+  }
+
   useEffect(() => {
     setSuggestions(allLocations);
   }, [`${allLocations}`]);
@@ -61,7 +67,7 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
               </li>
             );
           })}
-          <li key="See all cities">
+          <li onClick={handleSeeAllCities} key="See all cities">
             <b>See all cities</b>
           </li>
         </ul>
