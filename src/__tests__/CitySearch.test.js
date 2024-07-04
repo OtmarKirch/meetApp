@@ -99,7 +99,7 @@ describe("<CitySearch /> component", () => {
 
 describe("<CitySearch /> integration", () => {
   let view;
-  beforeAll(() => {
+  beforeEach(() => {
     view = render(<App />);
   });
 
