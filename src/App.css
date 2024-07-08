@@ -1,16 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 
 :root {
-  --background-website: #6C0345;
-  --background-orange: #DC6B19;
+  --background-website: #eef0f0;
+  --background-orange: #edc4dd;
   --background-yellow: #F7C566;
   --font-light: #FFF8DC;
-  --font-dark: var(--background-website);
+  --font-dark: #000000;
 }
 
 body {
   background-color: var(--background-website);
-  color: var(--font-light)
+  color: var(--font-dark)
 }
 
 .App {
@@ -49,14 +49,15 @@ input[type="number"] {
 }
 
 #city-search {
+  display: flex;
   flex-direction: column;
   margin: auto;
   position: relative;
 }
 
 #city-search>input {
-  background-color: var(--background-orange);
-  border: 1px solid var(--background-yellow);
+  background-color: var(--background-website);
+  border: 1px solid var(--font-dark);
   color: var(--font-dark)
 
 }
@@ -90,8 +91,8 @@ input[type="number"] {
 }
 
 #event-number > input {
-  background-color: var(--background-orange);
-  border: 1px solid var(--background-yellow);
+  background-color: var(--background-website);
+  border: 1px solid var(--font-dark);
   color: var(--font-dark)
 }
 
@@ -99,10 +100,10 @@ input[type="number"] {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
   text-align: left;
-  border: 1px solid var(--background-yellow);
+  border: 1px solid var(--font-dark);
   border-radius: 4px;
   position: relative;
-  background-color: var(--background-orange);
+  background-color: var(--background-website);
   color: var(--font-dark)
 }
 
@@ -115,8 +116,8 @@ input[type="number"] {
   box-shadow: none;
   outline: none;
   cursor: pointer;
-  background-color: var(--background-orange);
-  border-color: var(--background-yellow);
+  background-color: var(--background-website);
+  border-color: var(--font-dark);
   color: var(--font-dark);
 }
 

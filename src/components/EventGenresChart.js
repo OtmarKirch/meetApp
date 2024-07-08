@@ -12,7 +12,7 @@ const EventGenresChart = ({ events }) => {
   const [data, setData] = useState([]);
 
   const genres = ["React", "JavaScript", "Node", "jQuery", "Angular"];
-  const colors = ["#FFF8DC", "#F4B775", "#FCE9B5", "#E8912D", "#F7C566"];
+  const colors = ["red", "green", "orange", "blue", "grey"];
 
   useEffect(() => {
     setData(getData());
@@ -59,7 +59,7 @@ const EventGenresChart = ({ events }) => {
         <Pie
           data={data}
           dataKey="value"
-          fill="#8884d8"
+          fill="black"
           labelLine={false}
           label={renderCustomizedLabel}
           outerRadius={130}
