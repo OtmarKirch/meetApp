@@ -6,17 +6,20 @@
 - [Technologies](#technologies)
 - [Setup](#setup)
   * [Hosted with GitHub Pages](#hosted-with-github-pages)
-  * [Running the app locally](#running-the-app-locally)
 - [Key Features](#key-features)
   * [User Stories](#user-stories)
   * [Scenarios](#scenarios)
-    
 - [Impressions](#impressions)
+  * [Login](#login)
+  * [Main View](#main-view)
+  * [Filter Events by City](#filter-events-by-city)
+  * [Choose Number of Events](#choose-number-of-events)
+  * [Display Warnings](#display-warnings)
+  * [Show/Hide Event Details](#showhide-event-details)
 - [Conclusion](#conclusion)
   * [Challenges](#challenges)
   * [Future Improvements](#future-improvements)
   * [Final Thoughts](#final-thoughts)
-- [Serverless functions](#serverless-functions)
 
 <!-- tocstop -->
 
@@ -158,10 +161,10 @@ The user can expand an event to see its details by clicking on "Show Details". C
 
 ## Conclusion
 ### Challenges
-## Serverless functions
+#### Serverless functions
 Implementing the serverless AWS lambda functions was the greatest challenge in this project. Configuring the AWS account, setting up the AWS CLI, and creating the lambda functions were all new concepts to me. The serverless functions are used to implement the functionality of the app, including user access by obtaining and refreshing OAuth2 tokens. Yet, it was certainly worth theThe use of serverless functions allows the app to scale dynamically with growing user demand.
 
-## Test Driven Development
+#### Test Driven Development
 The TDD approach was also a challenge at first. Figuring out how to write tests before the actual functionality was a new concept to me. However, the TDD approach ensures high-quality code by writing tests before actual functionality. This approach also helps to identify potential issues early in the development process. When I got the hang of it, I found it to be a very useful approach to writing code. I started writing some tests which were actually not strictly required by the project, but I found it to be a good practice to write tests for all the components I was building. This way I could ensure that the components were working as expected and that I could easily identify any issues that might arise.
 
 ### Future Improvements
